@@ -34,10 +34,13 @@ class LoginController extends Controller
 
             return redirect()->route('site.index');
         } else {
-            return redirect()->route('site.login', ['error' => 'true']);
+            return redirect()->route('site.login', ['error' => 1]);
         }
     }
 
     public function logout(){
+
+        session_destroy();
+        return redirect()->route('site.login', ['error' => 2]);
     }
 }
