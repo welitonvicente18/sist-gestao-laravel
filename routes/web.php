@@ -5,12 +5,16 @@ use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobrenosController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\LogAcessoMiddleware;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
+// Route::middleware(LogAcessoMiddleware::class)->get('/', [PrincipalController::class, 'index'])->name('site.index');
+
 Route::get('/', [PrincipalController::class, 'index'])->name('site.index');
+
 Route::get('/sobre-nos', [SobrenosController::class, 'sobreNos'])->name('site.sobrenos');
 Route::get('/contato', [ContatoController::class, 'contato'])->name('site.contato');
 Route::post('/contato', [ContatoController::class, 'store'])->name('site.store');
