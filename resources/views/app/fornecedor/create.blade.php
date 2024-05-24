@@ -1,12 +1,12 @@
 @extends('app.layouts.basico')
 
-@section('titulo', 'Fornecedor')
+@section('titulo', 'Fornecedor Adicionar')
 
 @section('conteudo')
 
 <div class="conteudo-pagina">
     <div class="titulo-pagina-2">
-        <h1>Entre em Fornecedor</h1>
+        <h1>Entre em contato conosco</h1>
     </div>
 
     <div class="menu">

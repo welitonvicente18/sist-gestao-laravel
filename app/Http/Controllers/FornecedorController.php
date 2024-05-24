@@ -10,4 +10,14 @@ class FornecedorController extends Controller
     {
         return view('app.fornecedor.index');
     }
+
+    public function create()
+    {
+        return view('app.fornecedor.create');
+    }
+
+    public function listar()
+    {
+        return view('app.fornecedor.listar');
+    }
 }
