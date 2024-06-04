@@ -25,6 +25,7 @@ Route::get('/contato', [ContatoController::class, 'contato'])->name('site.contat
 Route::post('/contato', [ContatoController::class, 'store'])->name('site.store');
 
 Route::prefix('/app')->group(function () {
+
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
     Route::get('/logout', [LoginController::class, 'logout'])->name('app.logout');
 
@@ -34,6 +35,7 @@ Route::prefix('/app')->group(function () {
     Route::get('/fornecedor/edit/{id}', [FornecedorController::class, 'edit'])->name('app.fornecedor.edit');
     Route::post('/fornecedor/store', [FornecedorController::class, 'store'])->name('app.fornecedor.store');
     Route::put('/fornecedor/update/{id}', [FornecedorController::class, 'update'])->name('app.fornecedor.update');
+    Route::delete('/fornecedor/destroy/{id}', [FornecedorController::class, 'destroy'])->name('app.fornecedor.destroy');
 
     Route::get('/cliente', [ClienteController::class, 'index'])->name('app.cliente');
     Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto');
