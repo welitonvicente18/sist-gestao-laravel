@@ -28,9 +28,12 @@ Route::prefix('/app')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
     Route::get('/logout', [LoginController::class, 'logout'])->name('app.logout');
 
-    Route::get('/fornecedor', [FornecedorController::class, 'index'])->name('app.fornecedor');
-    Route::post('/fornecedor/listar', [FornecedorController::class, 'listar'])->name('app.fornecedor.listar');
+    Route::get('/fornecedor', [FornecedorController::class, 'index'])->name('app.fornecedor.index');
+    Route::post('/fornecedor', [FornecedorController::class, 'index'])->name('app.fornecedor.index');
     Route::get('/fornecedor/create', [FornecedorController::class, 'create'])->name('app.fornecedor.create');
+    Route::get('/fornecedor/edit/{id}', [FornecedorController::class, 'edit'])->name('app.fornecedor.edit');
+    Route::post('/fornecedor/store', [FornecedorController::class, 'store'])->name('app.fornecedor.store');
+    Route::put('/fornecedor/update/{id}', [FornecedorController::class, 'update'])->name('app.fornecedor.update');
 
     Route::get('/cliente', [ClienteController::class, 'index'])->name('app.cliente');
     Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto');
