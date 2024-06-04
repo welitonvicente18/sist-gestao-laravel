@@ -54,8 +54,12 @@
                         <td>{{ $fornecedor->uf}}</td>
                         <td>{{ $fornecedor->site}}</td>
                         <td>
-                            <a href="{{ route('app.fornecedor.edit', $fornecedor->id)}}"> Editar</a>
-
+                            <button><a href="{{ route('app.fornecedor.edit', $fornecedor->id)}}">Editar</a> </button>
+                            <form action="{{ route('app.fornecedor.destroy', $fornecedor->id)}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button href="#" type="submit" onclick="return confirm('Deseja excluir o fornecedor?') ? true : false ">Excluir</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

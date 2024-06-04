@@ -59,4 +59,12 @@ class FornecedorController extends Controller
 
         return view('app.fornecedor.index', ['fornecedores' => Fornecedor::all()])->with('msg', 'Editado com sucesso!');
     }
+
+    public function destroy($id)
+    {
+        $fornecedor = Fornecedor::find($id);
+        $fornecedor->delete();
+
+        return redirect()->route('app.fornecedor.index')->with('msg', 'Excluído com sucesso!');
+    }
 }

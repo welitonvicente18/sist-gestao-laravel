@@ -34,6 +34,7 @@ Route::prefix('/app')->group(function () {
     Route::get('/fornecedor/edit/{id}', [FornecedorController::class, 'edit'])->name('app.fornecedor.edit');
     Route::post('/fornecedor/store', [FornecedorController::class, 'store'])->name('app.fornecedor.store');
     Route::put('/fornecedor/update/{id}', [FornecedorController::class, 'update'])->name('app.fornecedor.update');
+    Route::delete('/fornecedor/delete/{id}', [FornecedorController::class, 'destroy'])->name('app.fornecedor.destroy');
 
     Route::get('/cliente', [ClienteController::class, 'index'])->name('app.cliente');
     Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto');
