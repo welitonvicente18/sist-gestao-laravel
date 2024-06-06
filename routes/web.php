@@ -37,7 +37,10 @@ Route::prefix('/app')->group(function () {
     Route::delete('/fornecedor/delete/{id}', [FornecedorController::class, 'destroy'])->name('app.fornecedor.destroy');
 
     Route::get('/cliente', [ClienteController::class, 'index'])->name('app.cliente');
-    Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto');
+
+    Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto.index');
+    Route::get('/produto/create', [ProdutoController::class, 'create'])->name('app.produto.create');
+    Route::post('/produto/store', [ProdutoController::class, 'store'])->name('app.produto.store');
 });
 
 
