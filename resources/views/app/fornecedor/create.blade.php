@@ -44,7 +44,7 @@
                     @error('email')
                     {{$message}}
                     @enderror
-                    <button type="submit"  >Salvar</button>
+                    <button type="submit">Salvar</button>
                 </form>
         </div>
     </div>

@@ -11,6 +11,7 @@ use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\LogAcessoMiddleware;
 use App\Http\Middleware\AutenticacaoMiddleware;
+use App\Models\Produto;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -40,7 +41,11 @@ Route::prefix('/app')->group(function () {
 
     Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto.index');
     Route::get('/produto/create', [ProdutoController::class, 'create'])->name('app.produto.create');
-    Route::post('/produto/store', [ProdutoController::class, 'store'])->name('app.produto.store');
+    Route::post('/produto', [ProdutoController::class, 'store'])->name('app.produto.store');
+    Route::get('/produto/edit/{id}', [ProdutoController::class, 'edit'])->name('app.produto.edit');
+    Route::delete('/produto/{id}', [ProdutoController::class, 'destroy'])->name('app.produto.destroy');
+    Route::get('/produto/{id}', [ProdutoController::class, 'show'])->name('app.produto.show');
+    Route::put('/produto/{id}', [ProdutoController::class, 'update'])->name('app.produto.update');
 });
 
 
