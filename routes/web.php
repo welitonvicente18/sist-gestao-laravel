@@ -35,10 +35,15 @@ Route::prefix('/app')->group(function () {
     Route::get('/fornecedor/edit/{id}', [FornecedorController::class, 'edit'])->name('app.fornecedor.edit');
     Route::post('/fornecedor/store', [FornecedorController::class, 'store'])->name('app.fornecedor.store');
     Route::put('/fornecedor/update/{id}', [FornecedorController::class, 'update'])->name('app.fornecedor.update');
-    Route::delete('/fornecedor/destroy/{id}', [FornecedorController::class, 'destroy'])->name('app.fornecedor.destroy');
+    Route::delete('/fornecedor/delete/{id}', [FornecedorController::class, 'destroy'])->name('app.fornecedor.destroy');
 
     Route::get('/cliente', [ClienteController::class, 'index'])->name('app.cliente');
-    Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto');
+
+    Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto.index');
+    Route::get('/produto/create', [ProdutoController::class, 'create'])->name('app.produto.create');
+    Route::post('/produto/store', [ProdutoController::class, 'store'])->name('app.produto.store');
+    Route::get('/produto/edit/{id}', [ProdutoController::class, 'edit'])->name('app.produto.edit');
+    Route::delete('/produto/delete/{id}', [ProdutoController::class, 'destroy'])->name('app.produto.destroy');
 });
 
 

@@ -1,24 +1,23 @@
 @extends('app.layouts.basico')
 
-@section('titulo', 'Fornecedor')
+@section('titulo', 'Produto')
 
 @section('conteudo')
 
 <div class="conteudo-pagina">
     <div class="titulo-pagina-2">
-        <h1>Fornecedor - Listar</h1>
+        <h1>Produto - Listar</h1>
     </div>
 
     <div class="menu">
         <ul>
-            <li><a href="{{ route('app.fornecedor.create') }}">Novo</a></li>
-            <li><a href="{{ route('app.fornecedor.index') }}">Consulta</a></li>
+            <li><a href="{{ route('app.produto.create') }}">Novo</a></li>
         </ul>
     </div>
     <div class="informacao-pagina">
         <div style="width: 50%;margin-left: auto;margin-right: auto">
             <div style="margin:0px">
-                <form action="{{ route('app.fornecedor.index') }}" method="post">
+                <form action="{{ route('app.produto.index') }}" method="post">
                     @csrf
                     <input type="hidden" name="search" value="true" />
                     <input type="text" name="nome" value="{{ $params->nome ?? '' }}" placeholder="Nome" class="borda-preta" style="width:20%">
@@ -38,24 +37,22 @@
             <table width="100%" border="1 solid #000">
                 <thead>
                     <tr>
-                        <th>nome</th>
-                        <th>e-mail</th>
-                        <th>UF</th>
-                        <th>Site</th>
+                        <th>Produto</th>
+                        <th>Descrição</th>
+                        <th>Peso</th>
                         <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @if(isset($fornecedores))
-                    @foreach($fornecedores as $fornecedor)
+                    @if(isset($produtos))
+                    @foreach($produtos as $produto)
                     <tr>
-                        <td>{{ $fornecedor->nome}}</td>
-                        <td>{{ $fornecedor->email}}</td>
-                        <td>{{ $fornecedor->uf}}</td>
-                        <td>{{ $fornecedor->site}}</td>
+                        <td>{{ $produto->nome}}</td>
+                        <td>{{ $produto->descricao}}</td>
+                        <td>{{ $produto->peso}}</td>
                         <td>
-                            <button><a href="{{ route('app.fornecedor.edit', $fornecedor->id)}}">Editar</a> </button>
-                            <form action="{{ route('app.fornecedor.destroy', $fornecedor->id)}}" method="post">
+                            <button><a href="{{ route('app.fornecedor.edit', $produto->id)}}">Editar</a> </button>
+                            <form action="{{ route('app.fornecedor.destroy', $produto->id)}}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button href="#" type="submit" onclick="return confirm('Deseja excluir o fornecedor?') ? true : false ">Excluir</button>
@@ -67,8 +64,6 @@
                 </tbody>
             </table>
             <div>
-                {{ $fornecedores->appends($params)->links('pagination::bootstrap-4') }}
-                Total - {{ $fornecedores->count() }}
             </div>
 
         </div>
