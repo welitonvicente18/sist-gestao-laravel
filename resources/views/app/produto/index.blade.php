@@ -51,8 +51,9 @@
                         <td>{{ $produto->descricao}}</td>
                         <td>{{ $produto->peso}}</td>
                         <td>
-                            <button><a href="{{ route('app.fornecedor.edit', $produto->id)}}">Editar</a> </button>
-                            <form action="{{ route('app.fornecedor.destroy', $produto->id)}}" method="post">
+                            <button><a href="{{ route('app.produto.show', $produto->id) }}">Visualizar</a> </button>
+                            <button><a href="{{ route('app.produto.edit', $produto->id) }}">Editar</a> </button>
+                            <form action="{{ route('app.produto.destroy', $produto->id) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button href="#" type="submit" onclick="return confirm('Deseja excluir o fornecedor?') ? true : false ">Excluir</button>
