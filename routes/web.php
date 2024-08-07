@@ -3,7 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\ResponsavelController;
+use App\Http\Controllers\TurmaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,7 +43,7 @@ Route::middleware('auth')->group(function () {
 // });
 
 /**
- * Módulo Aluno
+ * Aluno
  */
 Route::get('/aluno', [AlunoController::class, 'index'])->name('aluno.index');
 Route::get('/aluno/create', [AlunoController::class, 'create'])->name('aluno.create');
@@ -51,10 +53,25 @@ Route::put('/aluno/{id}', [AlunoController::class, 'update'])->name('aluno.updat
 Route::delete('/eluno/{id}/delete', [AlunoController::class, 'destroy'])->name('aluno.destroy');
 
 /**
- * Módulo Responsavel
+ * Responsavel
  */
 Route::get('/responsavel', [ResponsavelController::class, 'index'])->name('responsavel.index');
 Route::get('/novoresponsalvel', [ResponsavelController::class, 'create'])->name('responsavel.create');
 Route::post('/responsavel', [ResponsavelController::class, 'store'])->name('responsavel.store');
+
+/**
+ * Turma
+ */
+
+Route::get('/turma', [TurmaController::class, 'index'])->name('turma.index');
+Route::get('/turma/create', [TurmaController::class, 'create'])->name('turma.create');
+
+/**
+ * Professor
+ */
+Route::get('/professor', [ProfessorController::class, 'index'])->name('professor.index');
+Route::get('/professor/create', [ProfessorController::class, 'create'])->name('professor.create');
+Route::post('/professor', [ProfessorController::class, 'store'])->name('professor.store');
+Route::put('/professor/{id}', [ProfessorController::class, 'update'])->name('professor.update');
 
 require __DIR__ . '/auth.php';

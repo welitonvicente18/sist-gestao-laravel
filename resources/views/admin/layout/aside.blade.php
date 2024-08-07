@@ -14,10 +14,10 @@
              <a class="" href="{{route('aluno.index')}}"><i class="bi bi-person-hearts"></i> Aluno</a>
          </li>
          <li class="">
-             <a class="" href="{{ route('responsavel.index')}}"><i class="bi bi-people-fill"></i> Professor</a>
+             <a class="" href="{{ route('turma.index')}}"><i class="bi bi-diagram-3-fill"></i> Turma</a>
          </li>
          <li class="">
-             <a class="" href="{{ route('responsavel.index')}}"><i class="bi bi-diagram-3-fill"></i> Turma</a>
+             <a class="" href="{{ route('professor.index')}}"><i class="bi bi-people-fill"></i> Professor</a>
          </li>
      </ul>
  </aside>
